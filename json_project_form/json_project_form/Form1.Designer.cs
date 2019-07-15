@@ -83,6 +83,7 @@
             this.btn_artist.TabIndex = 4;
             this.btn_artist.Text = "Add Artist";
             this.btn_artist.UseVisualStyleBackColor = true;
+            this.btn_artist.Click += new System.EventHandler(this.btn_artist_Click);
             // 
             // btn_works
             // 

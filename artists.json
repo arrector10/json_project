@@ -4,7 +4,7 @@
      "name": "Leonardo da Vinci",
      "DOB": "1452",
      "DOD": "1519", 
-     "married": "false",
+     "married": false,
      "works": [
 	{
           "title" : "Mona Lisa",
@@ -23,7 +23,7 @@
      "name": "Salvador Dali",
      "DOB": "1904",
      "DOD": "1989", 
-     "married": "true",
+     "married": true,
      "works": [
 	{
           "title" : "The Persistence of Memory",
@@ -42,7 +42,7 @@
      "name": "Frida Kahlo",
      "DOB": "1907",
      "DOD": "1954", 
-     "married": "true",
+     "married": true,
      "works": [
 	{
           "title" : "Self-Portrait with Thorn Necklace and Hummingbird",
