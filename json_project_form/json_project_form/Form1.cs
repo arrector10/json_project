@@ -10,12 +10,15 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using Newtonsoft.Json.Serialization;
+
 
 namespace json_project_form
 {
-    public class Rootobject
+    public class ArtistGroup
     {
         public List<Artist> artists { get; set; }
+        //public Artist[] artists { get; set; }
     }
 
     public class Artist
@@ -24,7 +27,9 @@ namespace json_project_form
         public string DOB { get; set; }
         public string DOD { get; set; }
         public bool married { get; set; }
+        //public Work[] works { get; set; }
         public List<Work> works { get; set; }
+    
     }
 
     public class Work
@@ -59,16 +64,18 @@ namespace json_project_form
         {
             try
             {
-                string jsonFromFile;
+                /*string jsonFromFile;
                 using (var sreader = new StreamReader(_path))
                 {
                     jsonFromFile = sreader.ReadToEnd();
                 }
 
-                txt_output.Text = jsonFromFile;
+                txt_output.Text = jsonFromFile;*/
 
                 //var artistFromJson = JsonConvert.DeserializeObject<Artist>(jsonFromFile);
 
+                var jsonFromFile = File.ReadAllText(_path);
+                txt_output.Text = jsonFromFile;
 
             }
             catch (Exception ex)
@@ -82,38 +89,21 @@ namespace json_project_form
             string json_input = txt_enter.Text;
             JObject myJson = JObject.Parse(json_input);
 
-           // string artistName = myJson.GetValue("name").ToString();
-
-            try
-            {
-                var artist = GetArtist(myJson);
-
-                var toWrite = JsonConvert.SerializeObject(artist, Formatting.Indented);
-
-                string jsonFromFile;
-                using (var sreader = new StreamReader(_path))
-                {
-                    jsonFromFile = sreader.ReadToEnd();
-                }
-
-                using (var swriter = new StreamWriter(_path))
-                {
-                    var list = JsonConvert.DeserializeObject<List<Artist>>(jsonFromFile);
-                    list.Add(artist);
-                    var convertedJson = JsonConvert.SerializeObject(list, Formatting.Indented);
+           //string artistName = myJson.GetValue("name").ToString();
 
 
-                    swriter.Write(co);
-                }
+            var artist = GetArtist(myJson);
 
-            }
-            catch (Exception ex)
-            {
+            var jsonFromFile = System.IO.File.ReadAllText(_path);
 
-            }
-
+            //var newArtist = JsonConvert.SerializeObject(artist, Formatting.Indented);
+            ArtistGroup artistsData = JsonConvert.DeserializeObject<ArtistGroup>(jsonFromFile);
+            //string blah = "";
+            artistsData.artists.Add(artist);
             
+            var convertedJson = JsonConvert.SerializeObject(artistsData, Formatting.Indented);
             
+            System.IO.File.WriteAllText(_path, convertedJson );
             //break here
 
         }
@@ -152,7 +142,28 @@ namespace json_project_form
 
     }
 
-    
 
 
+   /* public class Rootobject
+    {
+        public Artist[] artists { get; set; }
+    }
+
+    public class Artist
+    {
+        public string name { get; set; }
+        public string DOB { get; set; }
+        public string DOD { get; set; }
+        public bool married { get; set; }
+        public Work[] works { get; set; }
+    }
+
+    public class Work
+    {
+        public string title { get; set; }
+        public string type { get; set; }
+        public string year { get; set; }
+    }
+
+    */
 }

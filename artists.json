@@ -1,60 +1,71 @@
 {
-"artists" :[
-{ 
-     "name": "Leonardo da Vinci",
-     "DOB": "1452",
-     "DOD": "1519", 
-     "married": false,
-     "works": [
-	{
-          "title" : "Mona Lisa",
-          "type" : "painting",
-          "year" : "1503"
-	},
-	{
-          "title" : "Vitruvian Man",
-          "type" : "drawing",
-          "year" : "1490"
-	}
+  "artists": [
+    {
+      "name": "Leonardo da Vinci",
+      "DOB": "1452",
+      "DOD": "1519",
+      "married": false,
+      "works": [
+        {
+          "title": "Mona Lisa",
+          "type": "painting",
+          "year": "1503"
+        },
+        {
+          "title": "Vitruvian Man",
+          "type": "drawing",
+          "year": "1490"
+        }
       ]
-},
-
-{ 
-     "name": "Salvador Dali",
-     "DOB": "1904",
-     "DOD": "1989", 
-     "married": true,
-     "works": [
-	{
-          "title" : "The Persistence of Memory",
-          "type" : "painting",
-          "year" : "1931"
-	},
-	{
-          "title" : "The Elephants",
-          "type" : "painting",
-          "year" : "1948"
-	}
+    },
+    {
+      "name": "Salvador Dali",
+      "DOB": "1904",
+      "DOD": "1989",
+      "married": true,
+      "works": [
+        {
+          "title": "The Persistence of Memory",
+          "type": "painting",
+          "year": "1931"
+        },
+        {
+          "title": "The Elephants",
+          "type": "painting",
+          "year": "1948"
+        }
       ]
-},
-
-{ 
-     "name": "Frida Kahlo",
-     "DOB": "1907",
-     "DOD": "1954", 
-     "married": true,
-     "works": [
-	{
-          "title" : "Self-Portrait with Thorn Necklace and Hummingbird",
-          "type" : "painting",
-          "year" : "1940"
-	},
-	{
-          "title" : "The Wounded Deer",
-          "type" : "painting",
-          "year" : "1946"
-	}
+    },
+    {
+      "name": "Frida Kahlo",
+      "DOB": "1907",
+      "DOD": "1954",
+      "married": true,
+      "works": [
+        {
+          "title": "Self-Portrait with Thorn Necklace and Hummingbird",
+          "type": "painting",
+          "year": "1940"
+        },
+        {
+          "title": "The Wounded Deer",
+          "type": "painting",
+          "year": "1946"
+        }
       ]
-}
-]
+    },
+    {
+      "name": "John Doe",
+      "DOB": "1907",
+      "DOD": "1954",
+      "married": true,
+      "works": [
+        {
+          "title": "Self-Portrait",
+          "type": "painting",
+          "year": "1922"
+        }
+      ]
+    }
+  ]
 }
