@@ -64,6 +64,21 @@
           "title": "Self-Portrait",
           "type": "painting",
           "year": "1922"
+        },
+        {
+          "title": "Test",
+          "type": "painting",
+          "year": "1922"
+        },
+        {
+          "title": "Test Part ii",
+          "type": "painting",
+          "year": "1922"
+        },
+        {
+          "title": "Test Part III",
+          "type": "painting",
+          "year": "1922"
         }
       ]
     }

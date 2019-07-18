@@ -69,15 +69,16 @@
             // 
             // txt_enter
             // 
-            this.txt_enter.Location = new System.Drawing.Point(117, 377);
+            this.txt_enter.Location = new System.Drawing.Point(79, 323);
             this.txt_enter.Multiline = true;
             this.txt_enter.Name = "txt_enter";
-            this.txt_enter.Size = new System.Drawing.Size(901, 115);
+            this.txt_enter.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt_enter.Size = new System.Drawing.Size(964, 241);
             this.txt_enter.TabIndex = 3;
             // 
             // btn_artist
             // 
-            this.btn_artist.Location = new System.Drawing.Point(266, 534);
+            this.btn_artist.Location = new System.Drawing.Point(264, 590);
             this.btn_artist.Name = "btn_artist";
             this.btn_artist.Size = new System.Drawing.Size(96, 23);
             this.btn_artist.TabIndex = 4;
@@ -87,16 +88,17 @@
             // 
             // btn_works
             // 
-            this.btn_works.Location = new System.Drawing.Point(535, 534);
+            this.btn_works.Location = new System.Drawing.Point(535, 590);
             this.btn_works.Name = "btn_works";
             this.btn_works.Size = new System.Drawing.Size(91, 23);
             this.btn_works.TabIndex = 5;
             this.btn_works.Text = "Add Works";
             this.btn_works.UseVisualStyleBackColor = true;
+            this.btn_works.Click += new System.EventHandler(this.btn_works_Click);
             // 
             // btn_clear
             // 
-            this.btn_clear.Location = new System.Drawing.Point(801, 534);
+            this.btn_clear.Location = new System.Drawing.Point(801, 590);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(75, 23);
             this.btn_clear.TabIndex = 6;

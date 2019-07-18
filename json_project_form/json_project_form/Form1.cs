@@ -15,30 +15,6 @@ using Newtonsoft.Json.Serialization;
 
 namespace json_project_form
 {
-    public class ArtistGroup
-    {
-        public List<Artist> artists { get; set; }
-        //public Artist[] artists { get; set; }
-    }
-
-    public class Artist
-    {
-        public string name { get; set; }
-        public string DOB { get; set; }
-        public string DOD { get; set; }
-        public bool married { get; set; }
-        //public Work[] works { get; set; }
-        public List<Work> works { get; set; }
-    
-    }
-
-    public class Work
-    {
-        public string title { get; set; }
-        public string type { get; set; }
-        public string year { get; set; }
-    }
-
     public partial class Form1 : Form
     {
         private readonly string _path = @"C:\Users\alici\source\repos\json_project\artists.json";
@@ -89,9 +65,7 @@ namespace json_project_form
             string json_input = txt_enter.Text;
             JObject myJson = JObject.Parse(json_input);
 
-           //string artistName = myJson.GetValue("name").ToString();
-
-
+           
             var artist = GetArtist(myJson);
 
             var jsonFromFile = System.IO.File.ReadAllText(_path);
@@ -106,6 +80,16 @@ namespace json_project_form
             System.IO.File.WriteAllText(_path, convertedJson );
             //break here
 
+        }
+        private Work GetWork (JObject transferObject)
+        {
+            var work = new Work
+            {
+                title = (string)transferObject["works"][0]["title"],
+                type = (string)transferObject["works"][0]["type"],
+                year = (string)transferObject["works"][0]["year"]
+            };
+            return work;
         }
 
         private Artist GetArtist(JObject transferObject)
@@ -140,13 +124,40 @@ namespace json_project_form
 
         }
 
+        private void btn_works_Click(object sender, EventArgs e)
+        {
+            string json_input = txt_enter.Text;
+            JObject myJson = JObject.Parse(json_input);
+
+            var artist = GetArtist(myJson);
+            Work work = GetWork(myJson);
+            JToken artistName = myJson.GetValue("name");
+            //Work artistWork = myJson.SelectToken;
+            var jsonFromFile = System.IO.File.ReadAllText(_path);
+
+            ArtistGroup artistsData = JsonConvert.DeserializeObject<ArtistGroup>(jsonFromFile);
+            
+            foreach (Artist person in artistsData.artists)
+            {
+
+
+                if (person.name.ToString() == artistName.ToString())
+                {
+                    person.works.Add(work);
+                    var convertedJson = JsonConvert.SerializeObject(artistsData, Formatting.Indented);
+                    System.IO.File.WriteAllText(_path, convertedJson);
+                    break;
+
+                    //add new work to existing works list
+                }
+                
+            }
+        }
     }
-
-
-
-   /* public class Rootobject
+    public class ArtistGroup
     {
-        public Artist[] artists { get; set; }
+        public List<Artist> artists { get; set; }
+        //public Artist[] artists { get; set; }
     }
 
     public class Artist
@@ -155,7 +166,9 @@ namespace json_project_form
         public string DOB { get; set; }
         public string DOD { get; set; }
         public bool married { get; set; }
-        public Work[] works { get; set; }
+        //public Work[] works { get; set; }
+        public List<Work> works { get; set; }
+    
     }
 
     public class Work
@@ -165,5 +178,6 @@ namespace json_project_form
         public string year { get; set; }
     }
 
-    */
+   
+    
 }
